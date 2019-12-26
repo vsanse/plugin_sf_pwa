@@ -18,6 +18,9 @@ Get latest verion from [Releases](https://github.com/vsanse/plugin_sg_pwa/releas
     
     Merchant Tools >  SEO >  URL Rules > Pipeline URLs > New Alias
 3. Include **pwa/register** template in head tag of your site e.g: htmlHead.isml
+	```
+	<isinclude template="pwa/register"/>
+	```
 4. Add new property file named pwa.properties to your site cartrige to update manifest.json file with your site name, theme, icons and To updated offline fallback page for your site.
 5. **[Optional]** Add new template "pwa/static_assets.isml" if you want to override cache file on first load and add pages to be cached in Service worker in form of array: e.g:
 	```
