@@ -45,13 +45,7 @@ self.addEventListener('activate', function (event) {
   <iselse/>
   // If any fetch fails, it will show the offline page.
   self.addEventListener('fetch', function (event) {
-    if (event.request.method !== 'GET'){
-      event.respondWith(
-        fetch(event.request).catch(function() {
-          return caches.match(offlineFallbackPage);
-        })
-      );
-    }
+    if (event.request.method !== 'GET') return;
     <isif condition="${Resource.msg('pwa.app.sw.cahe.strategy','pwa',null)==="CF"}">
      /**
      * Fetch from cache first if fails get from network, if both fails shoe generic offline page
