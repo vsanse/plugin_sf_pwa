@@ -1,4 +1,4 @@
-### plugin_sg_pwa
+# plugin_sg_pwa
 ![](https://raw.githubusercontent.com/vsanse/plugin_sg_pwa/master/plugin_sg_pwa/cartridge/static/default/images/icons/icon-128x128.png)
 
 ### Prerequisite
