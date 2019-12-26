@@ -1,0 +1,3 @@
+[
+    "${URLUtils.https("Pwa-Offline")}"
+]

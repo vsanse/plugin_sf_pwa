@@ -1,0 +1,43 @@
+{
+  "name": "<isprint value="${Resource.msg('pwa.app.name','pwa',null)}"/>",
+  "short_name": "<isprint value="${Resource.msg('pwa.app.short.name','pwa',null)}"/>",
+  "theme_color": "<isprint value="${Resource.msg('pwa.app.theme','pwa',null)}" encoding="off"/>",
+  "background_color": "<isprint value="${Resource.msg('pwa.app.background','pwa',null)}" encoding="off"/>",
+  "display": "<isprint value="${Resource.msg('pwa.app.display','pwa',null)}"/>",
+  "start_url": "<isprint value="${Resource.msg('pwa.app.start.url','pwa',null)}"/>",
+  "icons": [
+    {
+      "src":"<isprint value="${Resource.msg('pwa.icon.72','pwa',null)}"/>",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "<isprint value="${Resource.msg('pwa.icon.96','pwa',null)}"/>",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "<isprint value="${Resource.msg('pwa.icon.128','pwa',null)}"/>",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "<isprint value="${Resource.msg('pwa.icon.144','pwa',null)}"/>",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "<isprint value="${Resource.msg('pwa.icon.192','pwa',null)}"/>",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "<isprint value="${Resource.msg('pwa.icon.512','pwa',null)}"/>",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+  <isif condition="${Resource.msg('pwa.app.manifest.extended','pwa',null)==="true"}">
+    <isinclude template="pwa/manifest_extended" />
+  </isif>
+}

@@ -1,0 +1,19 @@
+<meta name="theme-color" content="${Resource.msg('pwa.app.theme','pwa',null)}"/>
+<link rel="manifest" href="${URLUtils.https('Pwa-Manifest').toString()}"/>
+<link rel="apple-touch-icon" href="${Resource.msg('pwa.app.apple-touch-icon','pwa',null)}">
+
+<script>
+    if ("serviceWorker" in navigator) {
+        if (navigator.serviceWorker.controller) {
+            console.log("Active service worker found, no need to register");
+        } else {
+            // Register the service worker
+            navigator.serviceWorker
+            .register("${URLUtils.https('Pwa-SW').toString()}")
+            .then(function (reg) {  
+                console.log("Service worker has been registered");
+            });
+        }
+    }
+    
+</script>

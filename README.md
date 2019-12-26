@@ -1,2 +1,62 @@
-# plugin_sg_pwa
-Salesforce Demmandware cartridge to enable PWA support on your storefront
+### plugin_sg_pwa
+![](https://pscode.lioncloud.net/vissanas/plugin_sg_pwa/raw/master/plugin_sg_pwa/cartridge/static/default/images/icons/icon-128x128.png)
+
+### Prerequisite
+
+- HTTPS enabled website
+
+
+### Steps to add PWA support
+                
+1. add "plugin_sg_pwa " cartridge to site path
+
+    Administration > Manage Sites > [Your Site ] > Settings > Cartridges
+2. Create URL aliases for controllers:- Pwa-SW, Pwa-Manifest
+    
+    Merchant Tools >  SEO >  URL Rules > Pipeline URLs > New Alias
+3. Add new property file named pwa.properties to your site cartrige to update manifest.json file with your site name, theme, icons and To updated offline fallback page for your site.
+4. **[Optional]** Add new template "pwa/static_assets.isml" if you want to override cache file on first load and add pages to be cached in Service worker in form of array: e.g:
+	```
+	[
+        "${URLUtils.https("Pwa-Offline")}",<=== [MANDATORY TO ADD IN THIS FILE IF OVERRIDING]
+        "${URLUtils.staticURL('/css/app.min.css')}",
+        "${URLUtils.staticURL('/js/app.min.js')}"
+    ]
+    ```
+5. **[Optional]** You may want to design your own offline page so create new template "pwa/offline.isml" in your site cartridge it will override default offline template in plugin cartridge.
+
+
+### Features
+1. #### Extend Manifest and Service worker
+    Feeling adventurous? Want to add more cool functionalitites to your PWA?
+
+    + **To add more configurations to your manifest.json:**
+        1. In your site cartridge's pwa.properties file add line
+            ```
+            pwa.app.manifest.extended=true
+            ```
+        2. Create file **manifest_extended.isml** under **pwa** folder in templates of your site cartridge
+
+    + **To add more functionalities to your service worker:**
+        1. In your site cartridge's pwa.properties file add line
+            ```
+            pwa.app.sw.extended=true
+            ```
+        2. Create file **sw_extended.isml** under **pwa** folder in templates of your site cartridge
+
+        
+2. #### SkipWaiting(): to ensures any new versions of a service worker take over the page and become activated immediately.
+    **Note:** This is true by default so you may not need to add this line to your site cartridge's pwa.properties file
+    ```
+    pwa.app.skipWaiting=true
+    ```
+
+
+### Using with SFRA
+
+Simply conver controller Pwa to SFRA routes and will work same as in SiteGenesis
+
+### Upcoming
+1. Choose type of cache pattern to use: 
+Cache-First, Network-First, Network-Only etc.
+2. Any other feature on request.
