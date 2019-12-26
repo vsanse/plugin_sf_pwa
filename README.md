@@ -70,7 +70,7 @@ Get latest verion from [Releases](https://github.com/vsanse/plugin_sg_pwa/releas
     
 ### Using with SFRA
 
-Simply conver controller Pwa to SFRA routes and will work same as in SiteGenesis
+Simply convert controller Pwa to SFRA routes and will work same as in SiteGenesis
 
 ### Upcoming
 1. ~~Choose type of cache pattern to use: Cache-First, Network-First, Network-Only etc.~~
