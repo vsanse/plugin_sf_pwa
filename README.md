@@ -17,8 +17,9 @@ Get latest verion from [Releases](https://github.com/vsanse/plugin_sg_pwa/releas
 2. Create URL aliases for controllers:- Pwa-SW, Pwa-Manifest
     
     Merchant Tools >  SEO >  URL Rules > Pipeline URLs > New Alias
-3. Add new property file named pwa.properties to your site cartrige to update manifest.json file with your site name, theme, icons and To updated offline fallback page for your site.
-4. **[Optional]** Add new template "pwa/static_assets.isml" if you want to override cache file on first load and add pages to be cached in Service worker in form of array: e.g:
+3. Include **pwa/register** template in <head> of your storefront
+4. Add new property file named pwa.properties to your site cartrige to update manifest.json file with your site name, theme, icons and To updated offline fallback page for your site.
+5. **[Optional]** Add new template "pwa/static_assets.isml" if you want to override cache file on first load and add pages to be cached in Service worker in form of array: e.g:
 	```
 	[
         "${URLUtils.https("Pwa-Offline")}",<=== [MANDATORY TO ADD IN THIS FILE IF OVERRIDING]
@@ -26,7 +27,7 @@ Get latest verion from [Releases](https://github.com/vsanse/plugin_sg_pwa/releas
         "${URLUtils.staticURL('/js/app.min.js')}"
     ]
     ```
-5. **[Optional]** You may want to design your own offline page so create new template "pwa/offline.isml" in your site cartridge it will override default offline template in plugin cartridge.
+6. **[Optional]** You may want to design your own offline page so create new template "pwa/offline.isml" in your site cartridge it will override default offline template in plugin cartridge.
 
 
 ### Features
