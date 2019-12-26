@@ -1,5 +1,6 @@
 ### plugin_sg_pwa
-![](https://pscode.lioncloud.net/vissanas/plugin_sg_pwa/raw/master/plugin_sg_pwa/cartridge/static/default/images/icons/icon-128x128.png)
+![](https://raw.githubusercontent.com/vsanse/plugin_sg_pwa/master/plugin_sg_pwa/cartridge/static/default/images/icons/icon-128x128.png)
+
 
 ### Prerequisite
 
@@ -44,19 +45,31 @@
             ```
         2. Create file **sw_extended.isml** under **pwa** folder in templates of your site cartridge
 
+    + **To override fetch method of service worker**
+        1. In your site cartridge's pwa.properties file add line
+            ```
+            pwa.app.sw.fetch.override=true
+            ```
+        2. Create file **sw_fetch_override.isml** under **pwa** folder in templates of your site cartridge
+
         
 2. #### SkipWaiting(): to ensures any new versions of a service worker take over the page and become activated immediately.
     **Note:** This is true by default so you may not need to add this line to your site cartridge's pwa.properties file
     ```
     pwa.app.skipWaiting=true
     ```
-
-
+3. #### Choose you cache strategy
+    Currently you have a choice of 3 types of cache strategies.
+    Cache Strategy can be defined using keywords  Cache First=CF, Network First=NF, Cache Then Network=CTN. For e.g.
+    ```
+    pwa.app.sw.cahe.strategy=CTN
+    ```
+    **Note** CTN is default cache strategy so you may not need to add this line to your site cartridge's pwa.properties file unless you want to override it
+    
 ### Using with SFRA
 
 Simply conver controller Pwa to SFRA routes and will work same as in SiteGenesis
 
 ### Upcoming
-1. Choose type of cache pattern to use: 
-Cache-First, Network-First, Network-Only etc.
+1. ~~Choose type of cache pattern to use: Cache-First, Network-First, Network-Only etc.~~
 2. Any other feature on request.
