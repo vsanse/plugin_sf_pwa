@@ -1,11 +1,13 @@
 ### plugin_sg_pwa
 ![](https://raw.githubusercontent.com/vsanse/plugin_sg_pwa/master/plugin_sg_pwa/cartridge/static/default/images/icons/icon-128x128.png)
 
-
 ### Prerequisite
 
 - HTTPS enabled website
 
+### Cartridge Download
+
+Get latest verion from [Releases](https://github.com/vsanse/plugin_sg_pwa/releases)
 
 ### Steps to add PWA support
                 
