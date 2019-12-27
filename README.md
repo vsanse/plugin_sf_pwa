@@ -67,6 +67,16 @@ Get latest verion from [Releases](https://github.com/vsanse/plugin_sg_pwa/releas
     pwa.app.sw.cahe.strategy=CTN
     ```
     **Note** CTN is default cache strategy so you may not need to add this line to your site cartridge's pwa.properties file unless you want to override it
+4. #### Handling opaque/ third party responses
+    By default plugin prevent any third party request being cached and is recommended as every third party request may generate a response of type opaque which causes it to get an minimum 7MB storeage space in cache. more at: https://cloudfour.com/thinks/when-7-kb-equals-7-mb/
+    Although it is recommended to not allow opaque response being cached but you cn allow it using 
+    ```
+        pwa.app.no.opaque.cache=false
+    ```
+    **Recommended way**:
+    + Keep no opaque cache property as true in pwa.properties[default plugin behaviour]
+    + Add "crossorigin" to your images link tags to allow them in caching
+    + Add any third party request you want to cache to "static_assets.isml"
     
 ### Using with SFRA
 
