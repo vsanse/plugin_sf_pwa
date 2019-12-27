@@ -84,12 +84,12 @@ self.addEventListener('activate', function (event) {
       caches.open(CACHE).then(function(cache){
         return cache.match(event.request).then(function(response){
           var fetchPromise = fetch(event.request).then(function(networkResponse){
-            </<isif condition="${Resource.msg('pwa.app.no.opaque.cache','pwa',null)==="true"}">
-              if(networkResponse.type!=="opaque" && networkResponse.status != 0){
-                cache.put(event.request, networkResponse.clone());
-              }
+            <isif condition="${Resource.msg('pwa.app.no.opaque.cache','pwa',null)==="true"}">
+            if(networkResponse.type!=="opaque" && networkResponse.status != 0){
+              cache.put(event.request, networkResponse.clone());
+            }
             <iselse/>
-                cache.put(event.request, networkResponse.clone());
+            cache.put(event.request, networkResponse.clone());
             </isif>
             return networkResponse;
           })
