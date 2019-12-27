@@ -78,8 +78,8 @@ Get latest verion from [Releases](https://github.com/vsanse/plugin_sg_pwa/releas
         pwa.app.no.opaque.cache=false
     ```
     **Recommended way**:
-    + Keep no opaque cache property as true in pwa.properties[default plugin behaviour]
-    + Add "crossorigin" to your images link tags to allow them in caching
+    + Keep no opaque cache property as true in pwa.properties [default plugin behaviour].
+    + Opt-in to CORS mode: if your third-party CDNs all seem to support CORS, you could opt-in to CORS mode for your CSS and image requests via the [crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-crossorigin) attribute, and the responses will no longer be opaque.
     + Add any third party request you want to cache to "static_assets.isml"
     
 ### Using with SFRA
