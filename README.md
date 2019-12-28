@@ -109,6 +109,15 @@ Full case study at: [Lancôme rebuilds their mobile website as a PWA](https://de
     + Keep no opaque cache property as true in PWA.properties [default plugin behavior].
     + Opt-in to CORS mode: if your third-party CDNs all seem to support CORS, you could opt-in to CORS mode for your CSS and image requests via the [crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-crossorigin) attribute, and the responses will no longer be opaque.
     + Add any third party request you want to cache to "static_assets.isml"
+    + **Update:** Now you can whitelist your third party requests in service worker by adding them in array "pwa.app.opaque.whitelist" in "pwa.properties" file.
+        ```
+            # If you need some opaque third party request to be cached you 
+            # can either whitelist full domain by adding only origin say: "https://www.example.com" 
+            # or you can whitelist only a specific request by using 
+            # full url: "https://example.com/image/250x250" to the array
+
+            pwa.app.opaque.whitelist=["https://www.example.com", "https://example.com/image/250x250"]
+        ```
     
 ### Using with SFRA
 

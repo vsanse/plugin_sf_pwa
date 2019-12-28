@@ -46,6 +46,8 @@ self.addEventListener('activate', function (event) {
   // If any fetch fails, it will show the offline page.
   self.addEventListener('fetch', function (event) {
     if (event.request.method !== 'GET') return;
+    var whitelistOpaque = <isprint value="${Resource.msg('pwa.app.opaque.whitelist','pwa',null)}" encoding="off"/>
+    var useWhitelisting = whitelistOpaque.length > 0?true:false;
     <isif condition="${Resource.msg('pwa.app.sw.cahe.strategy','pwa',null)==="CF"}">
      /**
      * Fetch from cache first if fails get from network, if both fails shoe generic offline page
@@ -84,8 +86,16 @@ self.addEventListener('activate', function (event) {
       caches.open(CACHE).then(function(cache){
         return cache.match(event.request).then(function(response){
           var fetchPromise = fetch(event.request).then(function(networkResponse){
+            
             <isif condition="${Resource.msg('pwa.app.no.opaque.cache','pwa',null)==="true"}">
-            if(networkResponse.type!=="opaque" && networkResponse.status != 0){
+            var requestUrl = new URL(event.request.url);
+
+            if (networkResponse.type == "opaque" && networkResponse.status == 0) {
+              if(useWhitelisting && (whitelistOpaque.includes(requestUrl.origin)|| whitelistOpaque.includes(requestUrl.href))){
+                cache.put(event.request, networkResponse.clone());
+              }
+            }
+            else {
               cache.put(event.request, networkResponse.clone());
             }
             <iselse/>
