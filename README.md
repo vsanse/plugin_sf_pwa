@@ -4,8 +4,10 @@
 What is PWA? Why PWA?.... Before answering that let's have a look at how a user interacts with the digital world. As per study users usually spend 13% of their time on the web and 87% of that on Native apps due to their capabilities like push notification that brings the user back. So does that mean to abandon the web completely? Well... not exactly whereas the user spends most of the time on native apps but when it comes to reachability web surpasses native apps. On an average user installs ZERO apps per month where visits hundreds of websites at the same time. So if your app is not in users' top choice you can forget about it. This gap between native apps' capability and the web's reachability is covered by PWA.
 
 PWA collects the goodness of web reachability as once user visits your website he will be shown [app install banner](https://developers.google.com/web/fundamentals/app-install-banners) hence instead of dedicating an entire page for letting user know where to install your app, you can go on with your business and let browser handle app installs, on the other hand, PWA gets the goodness of native apps from its capabilities like push notification, offline experience and interact with device capabilities like camera, etc.
+More at [https://developers.google.com/web/progressive-web-apps](https://developers.google.com/web/progressive-web-apps)
 
 **How e-Commerce is benefited**
+
 As per a case study: Lancome rebuilt their website as PWA after seeing an increase in abandoned carts and loss in user traffic. After PWA result was:
 + 17% increase in conversions
 + 53% increase in mobile sessions on iOS
