@@ -35,7 +35,7 @@ Full case study at: [Lancôme rebuilds their mobile website as a PWA](https://de
 
 1. Get the latest version from [Releases](https://github.com/vsanse/plugin_sg_pwa/releases)
 
-2. :smiley: Say thanks by starring the repo :smiley:
+2. :star: Star the repo :stuck_out_tongue_winking_eye:
 
 ### Steps to add PWA support
                 
