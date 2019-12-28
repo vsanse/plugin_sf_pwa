@@ -9,11 +9,23 @@ More at [https://developers.google.com/web/progressive-web-apps](https://develop
 **How e-Commerce is benefited**
 
 As per a case study: Lancome rebuilt their website as PWA after seeing an increase in abandoned carts and loss in user traffic. After PWA result was:
-+ 17% increase in conversions
-+ 53% increase in mobile sessions on iOS
-+ 8% increase in conversion rates on recovered carts via Push Notifications
++ Overall
 
-Full case study at: [https://developers.google.com/web/showcase/2017/lancome](https://developers.google.com/web/showcase/2017/lancome)
+	+ 84% decrease in time until the page is interactive
+	+ 17% increase in conversions
+	+ 15% decrease in bounce rate
+	+ 51% increase in mobile sessions
++ iOS
+
+	+ 53% increase in mobile sessions on iOS
+	+ 10% decrease in bounce rates on iOS
++ Push
+
+	+ 8% of consumers who tap on a push notification make a purchase
+	+ 18% open rate from Push Notifications
+	+ 12% increase in conversion rates on recovered carts via Push Notifications
+
+Full case study at: [Lancôme rebuilds their mobile website as a PWA](https://developers.google.com/web/showcase/2017/lancome)
 
 ### Prerequisite
 
