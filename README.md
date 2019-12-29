@@ -138,4 +138,7 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
 Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js under controllers folder in plugin
 
 ### Plugin at work:
+
+**Click image to watch the video**
+
 [![See on youtube](https://img.youtube.com/vi/XyNy90px5Lk/0.jpg)](https://www.youtube.com/watch?v=XyNy90px5Lk)
