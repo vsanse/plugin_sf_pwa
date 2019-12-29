@@ -1,6 +1,9 @@
 ![](https://i.imgur.com/YwwLUd5.png)
 
 ## Demo
+
+**Click image to watch plugin at worko**
+
 [![See on youtube](https://img.youtube.com/vi/XyNy90px5Lk/0.jpg)](https://www.youtube.com/watch?v=XyNy90px5Lk)
 
 ### What is all the buzz about
@@ -146,8 +149,3 @@ Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js under contr
 ### For support and feedback:
 Contact me at [LinkedIn](https://linkedin.com/in/vishal-sanserwal)
 
-### Plugin at work:
-
-**Click image to watch the video**
-
-[![See on youtube](https://img.youtube.com/vi/XyNy90px5Lk/0.jpg)](https://www.youtube.com/watch?v=XyNy90px5Lk)
