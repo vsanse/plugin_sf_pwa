@@ -25,7 +25,7 @@ As per a case study: Lancome rebuilt their website as PWA after seeing an increa
 	+ 18% open rate from Push Notifications
 	+ 12% increase in conversion rates on recovered carts via Push Notifications
 
-Full case study at: [Lancôme rebuilds their mobile website as a PWA](https://developers.google.com/web/showcase/2017/lancome)
+The full case study at [Lancôme rebuilds their mobile website as a PWA](https://developers.google.com/web/showcase/2017/lancome)
 
 ### Prerequisite
 
@@ -68,7 +68,7 @@ Full case study at: [Lancôme rebuilds their mobile website as a PWA](https://de
     ```
     npm install --global pwa-asset-generator
     ```
-2. Now let's generate icons in "icons" folder
+2. Now let's generate icons in the "icons" folder
     ```
      pwa-asset-generator pwa-logo.svg icons --opaque false
     ```
@@ -123,7 +123,7 @@ Full case study at: [Lancôme rebuilds their mobile website as a PWA](https://de
     + Keep no opaque cache property as true in PWA.properties [default plugin behavior].
     + Opt-in to CORS mode: if your third-party CDNs all seem to support CORS, you could opt-in to CORS mode for your CSS and image requests via the [crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-crossorigin) attribute, and the responses will no longer be opaque.
     + Add any third party request you want to cache to "static_assets.isml"
-    + **Update:** Now you can whitelist your third party requests in service worker by adding them in array "pwa.app.opaque.whitelist" in "pwa.properties" file.
+    + **Update:** Now you can whitelist your third party requests in service worker by adding them in the array "pwa.app.opaque.whitelist" in "pwa.properties" file.
         ```
             # If you need some opaque third party request to be cached you 
             # can either whitelist full domain by adding only origin say: "https://www.example.com" 
@@ -135,7 +135,7 @@ Full case study at: [Lancôme rebuilds their mobile website as a PWA](https://de
     
 ### Using with SFRA
 
-Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js in conmtrollers
+Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js under controllers folder in plugin
 
 ### Upcoming
 1. ~~Choose the type of cache pattern to use: Cache-First, Network-First, Network-Only, etc.~~
