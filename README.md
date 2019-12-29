@@ -68,9 +68,9 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
     ```
     npm install --global pwa-asset-generator
     ```
-2. Now let's generate icons in the "icons" folder
+2. Now let's generate icons in the "icons" folder: for better experience make sure your logo file is png or svg.
     ```
-     pwa-asset-generator pwa-logo.svg icons --opaque false
+     pwa-asset-generator [Your logo file] icons --opaque false
     ```
 3. Now copy generated icons folder to "[Your site Cartridge]/static/default/images/"
 4. **Updating pwa.properties file** :copy line [8-33] from "plugin_sg_pwa/templates/resources/pwa.properties", paste it to your site's pwa.properties file and replace "Sites-PWA-Site" to "Sites-[your site name]-Site".
