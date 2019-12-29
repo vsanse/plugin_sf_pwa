@@ -137,6 +137,5 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
 
 Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js under controllers folder in plugin
 
-### Upcoming
-1. ~~Choose the type of cache pattern to use: Cache-First, Network-First, Network-Only, etc.~~
-2. Any other feature on request.
+### Plugin at work:
+[![See on youtube](https://img.youtube.com/vi/XyNy90px5Lk/0.jpg)](https://www.youtube.com/watch?v=XyNy90px5Lk)
