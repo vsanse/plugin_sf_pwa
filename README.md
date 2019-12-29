@@ -112,7 +112,10 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
     ```
     pwa.app.sw.cahe.strategy=CTN
     ```
-    **Note** CTN is default cache strategy so you may not need to add this line to your site cartridge's pwa.properties file unless you want to override it
+    **Note** CTN is default and recommended cache strategy so you may not need to add this line to your site cartridge's pwa.properties file unless you want to override it.
+    
+    In CTN strategy every fetch request in service woker is first checked if it exists in cache if it does it will be served from there and if it doesn't then depending on your [opaque request handling](https://vsanse.github.io/plugin_sg_pwa/#handling-opaque-third-party-responses) it is served from network and cached at the same time. In case both of the above fails say request doesn't exists in cache and you are offline then it will fallback to generic error template defined by "Pwa-Offline" controller which you can override in your site cartridge for better UI/UX.
+    
 4. #### Handling opaque/ third party responses
     By default plugin prevent any third party request being cached and is recommended as every third party request may generate a response of type opaque which causes it to get a minimum 7MB storage space in the cache, more at [https://cloudfour.com/thinks/when-7-kb-equals-7-mb/](https://cloudfour.com/thinks/when-7-kb-equals-7-mb/)
     . Although it is recommended to not allow opaque response being cached you can allow it using 
