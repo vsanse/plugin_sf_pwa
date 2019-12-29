@@ -1,6 +1,34 @@
 <meta name="theme-color" content="${Resource.msg('pwa.app.theme','pwa',null)}"/>
 <link rel="manifest" href="${URLUtils.https('Pwa-Manifest').toString()}"/>
-<link rel="apple-touch-icon" href="${Resource.msg('pwa.app.apple-touch-icon','pwa',null)}">
+
+<link rel="apple-touch-icon" sizes="180x180"  href="${Resource.msg('pwa.app.apple.icon.180','pwa',null)}">
+<link rel="apple-touch-icon" sizes="167x167" href="${Resource.msg('pwa.app.apple.icon.167','pwa',null)}">
+<link rel="apple-touch-icon" sizes="152x152" href="${Resource.msg('pwa.app.apple.icon.152','pwa',null)}">
+<link rel="apple-touch-icon" sizes="120x120" href="${Resource.msg('pwa.app.apple.icon.120','pwa',null)}">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.2048-2732','pwa',null)}" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.2732-2048','pwa',null)}" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.1668-2388','pwa',null)}" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.2388-1668','pwa',null)}" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.1668-2224','pwa',null)}" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.2224-1668','pwa',null)}" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.1536-2048','pwa',null)}" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.2048-1536','pwa',null)}" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.1242-2688','pwa',null)}" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.2688-1242','pwa',null)}" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.1125-2436','pwa',null)}" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.2436-1125','pwa',null)}" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.828-1792','pwa',null)}" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.1792-828','pwa',null)}" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.1242-2208','pwa',null)}" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.2208-1242','pwa',null)}" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.2732-2048','pwa',null)}" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.2732-2048','pwa',null)}" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.2732-2048','pwa',null)}" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="${Resource.msg('pwa.app.apple.spash.2732-2048','pwa',null)}" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+
 
 <script>
     if ("serviceWorker" in navigator) {

@@ -1,0 +1,22 @@
+var server = require('server');
+
+server.get('SW', function (req, res, next) {
+    response.setContentType('application/javascript');
+    res.render("pwa/sw")
+    response.getWriter().print('');
+    next();
+});
+
+server.get('Manifest', function (req, res, next) {
+    response.setContentType('application/manifest+json');
+    res.render("pwa/manifest")
+    response.getWriter().print('');
+    next();
+});
+
+server.get('Offline', function (req, res, next) {
+    res.render('pwa/offline')
+    next();
+});
+
+module.exports = server.exports();

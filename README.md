@@ -30,12 +30,14 @@ Full case study at: [Lancôme rebuilds their mobile website as a PWA](https://de
 ### Prerequisite
 
 - HTTPS-enabled website
+- **Important** PWA icons see [Generating and adding PWA icons](https://vsanse.github.io/plugin_sg_pwa/#generating-and-adding-pwa-icons)
 
 ### Cartridge Download
 
 1. Get the latest version from [Releases](https://github.com/vsanse/plugin_sg_pwa/releases)
 
 2. :star: Star the repo :stuck_out_tongue_winking_eye:
+
 
 ### Steps to add PWA support
                 
@@ -60,6 +62,18 @@ Full case study at: [Lancôme rebuilds their mobile website as a PWA](https://de
     ```
 6. **[Optional]** You may want to design your own offline page so create new template "pwa/offline.isml" in your site cartridge it will override default offline template in plugin cartridge.
 
+
+### Generating and adding PWA icons
+1. We will be generating our PWA icons using tool "pwa-asset-generator" so let's install it first
+    ```
+    npm install --global pwa-asset-generator
+    ```
+2. Now let's generate icons in "icons" folder
+    ```
+     pwa-asset-generator pwa-logo.svg icons --opaque false
+    ```
+3. Now copy generated icons folder to "[Your site Cartridge]/static/default/images/"
+4. **Updating pwa.properties file** :copy line [8-33] from "plugin_sg_pwa/templates/resources/pwa.properties", paste it to your site's pwa.properties file and replace "Sites-PWA-Site" to "Sites-[your site name]-Site".
 
 ### Features
 1. #### Extend Manifest and Service worker
@@ -121,7 +135,7 @@ Full case study at: [Lancôme rebuilds their mobile website as a PWA](https://de
     
 ### Using with SFRA
 
-Simply convert controller Pwa to SFRA routes and will work same as in SiteGenesis
+Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js in conmtrollers
 
 ### Upcoming
 1. ~~Choose the type of cache pattern to use: Cache-First, Network-First, Network-Only, etc.~~
