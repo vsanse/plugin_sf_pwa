@@ -1,5 +1,8 @@
 ![](https://i.imgur.com/YwwLUd5.png)
 
+## Demo
+[![See on youtube](https://img.youtube.com/vi/XyNy90px5Lk/0.jpg)](https://www.youtube.com/watch?v=XyNy90px5Lk)
+
 ### What is all the buzz about
 What is PWA? Why PWA?.... Before answering that let's have a look at how a user interacts with the digital world. As per study users usually spend 13% of their time on the web and 87% of that on Native apps due to their capabilities like push notification that brings the user back. So does that mean to abandon the web completely? Well... not exactly whereas the user spends most of the time on native apps but when it comes to reachability web surpasses native apps. On an average user installs ZERO apps per month where visits hundreds of websites at the same time. So if your app is not in users' top choice you can forget about it. This gap between native apps' capability and the web's reachability is covered by PWA.
 
@@ -140,12 +143,11 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
 
 Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js under controllers folder in plugin
 
+### For support and feedback:
+Contact me at [LinkedIn](https://linkedin.com/in/vishal-sanserwal)
+
 ### Plugin at work:
 
 **Click image to watch the video**
 
 [![See on youtube](https://img.youtube.com/vi/XyNy90px5Lk/0.jpg)](https://www.youtube.com/watch?v=XyNy90px5Lk)
-
-
-### For support and feedback:
-Contact me at [LinkedIn](https://linkedin.com/in/vishal-sanserwal)
