@@ -149,6 +149,9 @@ Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js under contr
 ### For support and feedback:
 Contact at Linkedin: 
 [Vishal](https://linkedin.com/in/vishal-sanserwal)
+
 [Abhinav Tripathi](https://www.linkedin.com/in/abhinav-tripathi-06a2a642/)
+
+[Himanshu Kumar](https://www.linkedin.com/in/himaanshu24/)
 
 
