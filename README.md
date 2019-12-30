@@ -1,5 +1,11 @@
 ![](https://i.imgur.com/YwwLUd5.png)
 
+## Demo
+
+**Click image to watch plugin at worko**
+
+[![See on youtube](https://img.youtube.com/vi/XyNy90px5Lk/0.jpg)](https://www.youtube.com/watch?v=XyNy90px5Lk)
+
 ### What is all the buzz about
 What is PWA? Why PWA?.... Before answering that let's have a look at how a user interacts with the digital world. As per study users usually spend 13% of their time on the web and 87% of that on Native apps due to their capabilities like push notification that brings the user back. So does that mean to abandon the web completely? Well... not exactly whereas the user spends most of the time on native apps but when it comes to reachability web surpasses native apps. On an average user installs ZERO apps per month where visits hundreds of websites at the same time. So if your app is not in users' top choice you can forget about it. This gap between native apps' capability and the web's reachability is covered by PWA.
 
@@ -25,7 +31,7 @@ As per a case study: Lancome rebuilt their website as PWA after seeing an increa
 	+ 18% open rate from Push Notifications
 	+ 12% increase in conversion rates on recovered carts via Push Notifications
 
-Full case study at: [Lancôme rebuilds their mobile website as a PWA](https://developers.google.com/web/showcase/2017/lancome)
+The full case study at [Lancôme rebuilds their mobile website as a PWA](https://developers.google.com/web/showcase/2017/lancome)
 
 ### Prerequisite
 
@@ -68,9 +74,9 @@ Full case study at: [Lancôme rebuilds their mobile website as a PWA](https://de
     ```
     npm install --global pwa-asset-generator
     ```
-2. Now let's generate icons in "icons" folder
+2. Now let's generate icons in the "icons" folder: for better experience make sure your logo file is png or svg.
     ```
-     pwa-asset-generator pwa-logo.svg icons --opaque false
+     pwa-asset-generator [Your logo file] icons --opaque false
     ```
 3. Now copy generated icons folder to "[Your site Cartridge]/static/default/images/"
 4. **Updating pwa.properties file** :copy line [8-33] from "plugin_sg_pwa/templates/resources/pwa.properties", paste it to your site's pwa.properties file and replace "Sites-PWA-Site" to "Sites-[your site name]-Site".
@@ -112,7 +118,10 @@ Full case study at: [Lancôme rebuilds their mobile website as a PWA](https://de
     ```
     pwa.app.sw.cahe.strategy=CTN
     ```
-    **Note** CTN is default cache strategy so you may not need to add this line to your site cartridge's pwa.properties file unless you want to override it
+    **Note** CTN is default and recommended cache strategy so you may not need to add this line to your site cartridge's pwa.properties file unless you want to override it.
+    
+    In CTN strategy every fetch request in service woker is first checked if it exists in cache if it does it will be served from there and if it doesn't then depending on your [opaque request handling](https://vsanse.github.io/plugin_sg_pwa/#handling-opaque-third-party-responses) it is served from network and cached at the same time. In case both of the above fails say request doesn't exists in cache and you are offline then it will fallback to generic error template defined by "Pwa-Offline" controller which you can override in your site cartridge for better UI/UX.
+    
 4. #### Handling opaque/ third party responses
     By default plugin prevent any third party request being cached and is recommended as every third party request may generate a response of type opaque which causes it to get a minimum 7MB storage space in the cache, more at [https://cloudfour.com/thinks/when-7-kb-equals-7-mb/](https://cloudfour.com/thinks/when-7-kb-equals-7-mb/)
     . Although it is recommended to not allow opaque response being cached you can allow it using 
@@ -123,7 +132,7 @@ Full case study at: [Lancôme rebuilds their mobile website as a PWA](https://de
     + Keep no opaque cache property as true in PWA.properties [default plugin behavior].
     + Opt-in to CORS mode: if your third-party CDNs all seem to support CORS, you could opt-in to CORS mode for your CSS and image requests via the [crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-crossorigin) attribute, and the responses will no longer be opaque.
     + Add any third party request you want to cache to "static_assets.isml"
-    + **Update:** Now you can whitelist your third party requests in service worker by adding them in array "pwa.app.opaque.whitelist" in "pwa.properties" file.
+    + **Update:** Now you can whitelist your third party requests in service worker by adding them in the array "pwa.app.opaque.whitelist" in "pwa.properties" file.
         ```
             # If you need some opaque third party request to be cached you 
             # can either whitelist full domain by adding only origin say: "https://www.example.com" 
@@ -135,8 +144,8 @@ Full case study at: [Lancôme rebuilds their mobile website as a PWA](https://de
     
 ### Using with SFRA
 
-Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js in conmtrollers
+Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js under controllers folder in plugin
 
-### Upcoming
-1. ~~Choose the type of cache pattern to use: Cache-First, Network-First, Network-Only, etc.~~
-2. Any other feature on request.
+### For support and feedback:
+Contact me at [LinkedIn](https://linkedin.com/in/vishal-sanserwal)
+
