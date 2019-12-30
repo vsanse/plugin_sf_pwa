@@ -149,7 +149,7 @@ Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js under contr
 ### Upcoming updates:
 
 + Ability to show progress bar on click in app
-+ Ability to show button inside app to trigger app install
++ Ability to show button inside web page to trigger app install
 + Any other suggestion you might have :smiley:
 
 ### For support and feedback:
