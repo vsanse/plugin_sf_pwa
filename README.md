@@ -146,6 +146,12 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
 
 Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js under controllers folder in plugin
 
+### Upcoming updates:
+
++ Ability to show progress bar on click in app
++ Ability to show button inside app to trigger app install
++ Any other suggestion you might have :smiley:
+
 ### For support and feedback:
 Contact at Linkedin: 
 
