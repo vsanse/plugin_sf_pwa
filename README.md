@@ -112,7 +112,7 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
     ```
     pwa.app.skipWaiting=true
     ```
-3. #### Choose you cache strategy
+3. #### Choose your cache strategy
     Currently, you have a choice of 3 types of cache strategies.
     Cache Strategy can be defined using keywords  Cache First=CF, Network First=NF, Cache Then Network=CTN. For e.g.
     ```
