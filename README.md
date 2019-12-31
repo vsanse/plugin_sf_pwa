@@ -2,7 +2,7 @@
 
 ## Demo
 
-**Click image to watch plugin at worko**
+**Click image to watch plugin at work**
 
 [![See on youtube](https://img.youtube.com/vi/XyNy90px5Lk/0.jpg)](https://www.youtube.com/watch?v=XyNy90px5Lk)
 
@@ -133,15 +133,25 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
     + Opt-in to CORS mode: if your third-party CDNs all seem to support CORS, you could opt-in to CORS mode for your CSS and image requests via the [crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-crossorigin) attribute, and the responses will no longer be opaque.
     + Add any third party request you want to cache to "static_assets.isml"
     + **Update:** Now you can whitelist your third party requests in service worker by adding them in the array "pwa.app.opaque.whitelist" in "pwa.properties" file.
-        ```
-            # If you need some opaque third party request to be cached you 
-            # can either whitelist full domain by adding only origin say: "https://www.example.com" 
-            # or you can whitelist only a specific request by using 
-            # full url: "https://example.com/image/250x250" to the array
+	```
+	    # If you need some opaque third party request to be cached you 
+	    # can either whitelist full domain by adding only origin say: "https://www.example.com" 
+	    # or you can whitelist only a specific request by using 
+	    # full url: "https://example.com/image/250x250" to the array
 
-            pwa.app.opaque.whitelist=["https://www.example.com", "https://example.com/image/250x250"]
-        ```
-    
+	    pwa.app.opaque.whitelist=["https://www.example.com", "https://example.com/image/250x250"]
+	```
+5. #### Handling default app install behaviour
+    From version [v1.3](https://github.com/vsanse/plugin_sg_pwa/releases) 
+    + you can prevent default [mini-infobar](https://developers.google.com/web/fundamentals/app-install-banners#mini-info-bar) from appearing by using 
+	```
+	pwa.app.preventadd2hs=true	
+	```
+	If you decide to use above property, be sure to provide some [indication](https://vsanse.github.io/plugin_sg_pwa/#window-add2hs-to-rescue) to the user that your Progressive Web App is installable.
+	
+6. #### window.add2hs to rescue
+   From version [v1.3](https://github.com/vsanse/plugin_sg_pwa/releases) window object will have event add2hs which can be used to prompt user to install PWA using `window.add2hs.prompt()`. You can setup some [button or banner](https://developers.google.com/web/fundamentals/app-install-banners/promoting-install-mobile) to indicate user that your PWA is installable on click of which you can trigger `window.add2hs.prompt()` to prompt user to install PWA.
+
 ### Using with SFRA
 
 Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js under controllers folder in plugin
@@ -149,7 +159,7 @@ Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js under contr
 ### Upcoming updates:
 
 + Ability to show progress bar on click in app
-+ Ability to show button inside web page to trigger app install
++ ~~Ability to show button inside web page to trigger app install~~ Available from [v1.3](https://github.com/vsanse/plugin_sg_pwa/releases) 
 + Any other suggestion you might have :smiley:
 
 ### For support and feedback:
