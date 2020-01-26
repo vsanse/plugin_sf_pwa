@@ -36,18 +36,18 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
 ### Prerequisite
 
 - HTTPS-enabled website
-- **Important** PWA icons see [Generating and adding PWA icons](https://vsanse.github.io/plugin_sg_pwa/#generating-and-adding-pwa-icons)
+- **Important** PWA icons see [Generating and adding PWA icons](https://vsanse.github.io/plugin_sf_pwa/#generating-and-adding-pwa-icons)
 
 ### Cartridge Download
 
-1. Get the latest version from [Releases](https://github.com/vsanse/plugin_sg_pwa/releases)
+1. Get the latest version from [Releases](https://github.com/vsanse/plugin_sf_pwa/releases)
 
 2. :star: Star the repo :stuck_out_tongue_winking_eye:
 
 
 ### Steps to add PWA support
                 
-1. add "plugin_sg_pwa " cartridge to the site path
+1. add "plugin_sf_pwa " cartridge to the site path
 
     Administration > Manage Sites > [Your Site ] > Settings > Cartridges
 2. Create URL aliases for controllers:- Pwa-SW, Pwa-Manifest
@@ -79,7 +79,7 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
      pwa-asset-generator [Your logo file] icons --opaque false
     ```
 3. Now copy generated icons folder to "[Your site Cartridge]/static/default/images/"
-4. **Updating pwa.properties file** :copy line [8-33] from "plugin_sg_pwa/templates/resources/pwa.properties", paste it to your site's pwa.properties file and replace "Sites-PWA-Site" to "Sites-[your site name]-Site".
+4. **Updating pwa.properties file** :copy line [8-33] from "plugin_sf_pwa/templates/resources/pwa.properties", paste it to your site's pwa.properties file and replace "Sites-PWA-Site" to "Sites-[your site name]-Site".
 
 ### Features
 1. #### Extend Manifest and Service worker
@@ -120,7 +120,7 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
     ```
     **Note** CTN is default and recommended cache strategy so you may not need to add this line to your site cartridge's pwa.properties file unless you want to override it.
     
-    In CTN strategy every fetch request in service woker is first checked if it exists in cache if it does it will be served from there and if it doesn't then depending on your [opaque request handling](https://vsanse.github.io/plugin_sg_pwa/#handling-opaque-third-party-responses) it is served from network and cached at the same time. In case both of the above fails say request doesn't exists in cache and you are offline then it will fallback to generic error template defined by "Pwa-Offline" controller which you can override in your site cartridge for better UI/UX.
+    In CTN strategy every fetch request in service woker is first checked if it exists in cache if it does it will be served from there and if it doesn't then depending on your [opaque request handling](https://vsanse.github.io/plugin_sf_pwa/#handling-opaque-third-party-responses) it is served from network and cached at the same time. In case both of the above fails say request doesn't exists in cache and you are offline then it will fallback to generic error template defined by "Pwa-Offline" controller which you can override in your site cartridge for better UI/UX.
     
 4. #### Handling opaque/ third party responses
     By default plugin prevent any third party request being cached and is recommended as every third party request may generate a response of type opaque which causes it to get a minimum 7MB storage space in the cache, more at [https://cloudfour.com/thinks/when-7-kb-equals-7-mb/](https://cloudfour.com/thinks/when-7-kb-equals-7-mb/)
@@ -142,23 +142,27 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
 	pwa.app.opaque.whitelist=["https://www.example.com", "https://example.com/image/250x250"]
 	```
 5. #### Handling default app install behaviour
-    From version [v1.3](https://github.com/vsanse/plugin_sg_pwa/releases) you can prevent default [mini-infobar](https://developers.google.com/web/fundamentals/app-install-banners#mini-info-bar) from appearing by using 
+    From version [v1.3](https://github.com/vsanse/plugin_sf_pwa/releases) you can prevent default [mini-infobar](https://developers.google.com/web/fundamentals/app-install-banners#mini-info-bar) from appearing by using 
     ```
     pwa.app.preventadd2hs=true	
     ```
-    If you decide to use above property, be sure to provide some [indication](https://vsanse.github.io/plugin_sg_pwa/#windowadd2hs-to-rescue) to the user that your Progressive Web App is installable.
+    If you decide to use above property, be sure to provide some [indication](https://vsanse.github.io/plugin_sf_pwa/#windowadd2hs-to-rescue) to the user that your Progressive Web App is installable.
 	
 6. #### window.add2hs to rescue
-   From version [v1.3](https://github.com/vsanse/plugin_sg_pwa/releases) window object will have event add2hs which can be used to prompt user to install PWA using `window.add2hs.prompt()`. You can setup some [button or banner](https://developers.google.com/web/fundamentals/app-install-banners/promoting-install-mobile) to indicate user that your PWA is installable on click of which you can trigger `window.add2hs.prompt()` to prompt user to install PWA.
+   From version [v1.3](https://github.com/vsanse/plugin_sf_pwa/releases) window object will have event add2hs which can be used to prompt user to install PWA using `window.add2hs.prompt()`. You can setup some [button or banner](https://developers.google.com/web/fundamentals/app-install-banners/promoting-install-mobile) to indicate user that your PWA is installable on click of which you can trigger `window.add2hs.prompt()` to prompt user to install PWA.
+7. #### exclude requests from cache
+    From version [v1.4](https://github.com/vsanse/plugin_sf_pwa/releases) you can define all the urls that you want to exclude form cache in `excludes.isml`. If you wish to turn this feature off you can use `pwa.properties` and make `pwa.app.allow.excluding` false. 
 
-### Using with SFRA
+    **Note:** By default cartridge will exclude `Login-Show` and `Cart-Show` from cache. 
 
-Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js under controllers folder in plugin
+<!-- ### Using with SFRA
+
+Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js under controllers folder in plugin -->
 
 ### Upcoming updates:
 
 + Ability to show progress bar on click in app
-+ ~~Ability to show button inside web page to trigger app install~~ Available from [v1.3](https://github.com/vsanse/plugin_sg_pwa/releases) 
++ ~~Ability to show button inside web page to trigger app install~~ Available from [v1.3](https://github.com/vsanse/plugin_sf_pwa/releases) 
 + Any other suggestion you might have :smiley:
 
 ### For support and feedback:

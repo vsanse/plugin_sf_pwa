@@ -4,7 +4,7 @@ const CACHE = '<isprint value="${Resource.msg('pwa.app.cache.name','pwa',null)}"
 // TODO: Handle offline fallback functionality;
 const offlineFallbackPage = "${URLUtils.https("Pwa-Offline")}";
 const staticAssets = <isinclude template="pwa/static_assets" />
-
+const excludedPages = <isinclude template="pwa/excludes"/>
 
 // Install stage sets up the offline page in the cache and opens a new cache
 self.addEventListener('install', function (event) {
@@ -48,6 +48,7 @@ self.addEventListener('activate', function (event) {
     if (event.request.method !== 'GET') return;
     var whitelistOpaque = <isprint value="${Resource.msg('pwa.app.opaque.whitelist','pwa',null)}" encoding="off"/>
     var useWhitelisting = whitelistOpaque.length > 0?true:false;
+    var allowExcluding = <isprint value="${Resource.msg('pwa.app.allow.excluding','pwa',null)}" encoding="off"/>
     <isif condition="${Resource.msg('pwa.app.sw.cahe.strategy','pwa',null)==="CF"}">
      /**
      * Fetch from cache first if fails get from network, if both fails shoe generic offline page
@@ -88,18 +89,29 @@ self.addEventListener('activate', function (event) {
           var fetchPromise = fetch(event.request).then(function(networkResponse){
             
             <isif condition="${Resource.msg('pwa.app.no.opaque.cache','pwa',null)==="true"}">
-            var requestUrl = new URL(event.request.url);
+              var requestUrl = new URL(event.request.url);
 
-            if (networkResponse.type == "opaque" && networkResponse.status == 0) {
-              if(useWhitelisting && (whitelistOpaque.includes(requestUrl.origin)|| whitelistOpaque.includes(requestUrl.href))){
+              if (networkResponse.type == "opaque" && networkResponse.status == 0) {
+                if(useWhitelisting && (whitelistOpaque.includes(requestUrl.origin)|| whitelistOpaque.includes(requestUrl.href))){
+                  cache.put(event.request, networkResponse.clone());
+                }
+              } else if(allowExcluding) {
+                if(!excludedPages.includes(requestUrl.href)){
+                  cache.put(event.request, networkResponse.clone());
+                }
+              }
+              else {
                 cache.put(event.request, networkResponse.clone());
               }
-            }
-            else {
-              cache.put(event.request, networkResponse.clone());
-            }
-            <iselse/>
-            cache.put(event.request, networkResponse.clone());
+            <iselse/>  
+                if(allowExcluding) {
+                  if(!excludedPages.includes(requestUrl.href)){
+                    cache.put(event.request, networkResponse.clone());
+                  }
+                }
+                else {
+                  cache.put(event.request, networkResponse.clone());
+                }
             </isif>
             return networkResponse;
           })
