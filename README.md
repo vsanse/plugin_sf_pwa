@@ -50,9 +50,8 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
 1. add "plugin_sf_pwa " cartridge to the site path
 
     Administration > Manage Sites > [Your Site ] > Settings > Cartridges
-2. Create URL aliases for controllers:- Pwa-SW, Pwa-Manifest
+2. Change `yourSiteId` folder name in meta folder to your site id name and import metadata
     
-    Merchant Tools >  SEO >  URL Rules > Pipeline URLs > New Alias
 3. Include **pwa/register** template in head tag of your site e.g: htmlHead.isml
 	```
 	<isinclude template="pwa/register"/>
