@@ -78,7 +78,6 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
      pwa-asset-generator [Your logo file] icons --opaque false
     ```
 3. Now copy generated icons folder to "[Your site Cartridge]/static/default/images/"
-4. **Updating pwa.properties file** :copy line [8-33] from "plugin_sf_pwa/templates/resources/pwa.properties", paste it to your site's pwa.properties file and replace "Sites-PWA-Site" to "Sites-[your site name]-Site".
 
 ### Features
 1. #### Extend Manifest and Service worker

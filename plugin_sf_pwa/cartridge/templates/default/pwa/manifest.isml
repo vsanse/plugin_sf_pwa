@@ -1,18 +1,22 @@
+<isset name="siteid" value="${require('dw/system/Site').getCurrent().getID()}" scope="page" />
+<isset name="sitename" value="${require('dw/system/Site').getCurrent().getName()}" scope="page" />
+
+<iscontent type="application/manifest+json" charset="UTF-8" compact="true"/>
 {
-  "name": "<isprint value="${Resource.msg('pwa.app.name','pwa',null)}"/>",
-  "short_name": "<isprint value="${Resource.msg('pwa.app.short.name','pwa',null)}"/>",
+  "name": "<isprint value="${Resource.msgf('pwa.app.name','pwa',null, sitename)}"/>",
+  "short_name": "<isprint value="${Resource.msgf('pwa.app.short.name','pwa',null, sitename)}"/>",
   "theme_color": "<isprint value="${Resource.msg('pwa.app.theme','pwa',null)}" encoding="off"/>",
   "background_color": "<isprint value="${Resource.msg('pwa.app.background','pwa',null)}" encoding="off"/>",
   "display": "<isprint value="${Resource.msg('pwa.app.display','pwa',null)}"/>",
   "start_url": "<isprint value="${Resource.msg('pwa.app.start.url','pwa',null)}"/>",
   "icons": [
     {
-      "src": "<isprint value="${Resource.msg('pwa.app.manifest-icon-192','pwa',null)}"/>",
+      "src": "<isprint value="${Resource.msgf('pwa.app.manifest-icon-192','pwa',null, siteid)}"/>",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "<isprint value="${Resource.msg('pwa.app.manifest-icon-512','pwa',null)}"/>",
+      "src": "<isprint value="${Resource.msgf('pwa.app.manifest-icon-512','pwa',null, siteid)}"/>",
       "sizes": "512x512",
       "type": "image/png"
     }

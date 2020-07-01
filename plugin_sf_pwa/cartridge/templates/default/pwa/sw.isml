@@ -1,5 +1,6 @@
+<iscontent type="application/javascript" charset="UTF-8" compact="true"/>
 // This is the 'Offline page' service worker
-const CACHE = '<isprint value="${Resource.msg('pwa.app.cache.name','pwa',null)}" encoding="off"/>';
+const CACHE = "pwa-<isprint value="${require('dw/system/Site').getCurrent().getID()}" encoding="off" />";
 
 // TODO: Handle offline fallback functionality;
 const offlineFallbackPage = "${URLUtils.https("Pwa-Offline")}";

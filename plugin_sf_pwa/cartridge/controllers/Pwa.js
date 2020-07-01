@@ -5,7 +5,7 @@ var guard = require('*/cartridge/scripts/guard');
  * This is used during Service worker registration.
  */
 function sw() {
-    var template = new dw.util.Template("pwa/sw").render().text
+    var template = new dw.util.Template("pwa/sw").render().text;
     response.setContentType('application/javascript');
     response.getWriter().print(template);
 }
@@ -14,7 +14,7 @@ function sw() {
  * This is called from the head section to include manifest JSON to current page scope.
  */
 function manifest() {
-    var template = new dw.util.Template("pwa/manifest").render().text
+    var template = new dw.util.Template("pwa/manifest").render().text;
     response.setContentType('application/manifest+json');
     response.getWriter().print(template);
 }
