@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<url-rules xmlns="http://www.demandware.com/xml/impex/urlrules/2012-12-01">
-    <pipeline-aliases xml:lang="x-default">
-        <pipeline-alias pipeline="Pwa-Manifest">manifest</pipeline-alias>
-        <pipeline-alias pipeline="Pwa-SW">sw</pipeline-alias>
-    </pipeline-aliases>
-</url-rules>
