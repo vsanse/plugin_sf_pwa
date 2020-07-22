@@ -1,0 +1,8 @@
+[
+    "${URLUtils.https("Account-Me")}",
+    "${URLUtils.https("Cart-Show")}",
+    "${URLUtils.https("Cart-Get")}",
+    "${URLUtils.https("Cart-AddCoupon")}",
+    "${URLUtils.https("Cart-RemoveCouponLineItem")}",
+    "${URLUtils.https("Login-Logout")}"
+]
