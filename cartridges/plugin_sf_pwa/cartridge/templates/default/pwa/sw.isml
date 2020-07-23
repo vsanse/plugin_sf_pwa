@@ -19,7 +19,7 @@ self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open(CACHE).then(function (cache) {
       console.log('Cached offline page during install');
-      return cache.addAll(staticAssets);
+      return cache.addAll(staticAssets.map(url => new Request(url, {credentials: 'same-origin'})));
     })
   );
 });
