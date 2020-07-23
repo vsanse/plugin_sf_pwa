@@ -1,7 +1,7 @@
 <isset name="siteid" value="${require('dw/system/Site').getCurrent().getID()}" scope="page" />
 
 <meta name="theme-color" content="${Resource.msg('pwa.app.theme', 'pwa', null)}" />
-<link rel="manifest" href="${URLUtils.https('Pwa-Manifest').toString()}" />
+<link rel="manifest" href="${URLUtils.https('Pwa-Manifest').toString()}" crossorigin="use-credentials" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="${Resource.msgf('pwa.app.apple.icon.180', 'pwa', null, siteid)}">
 <link rel="apple-touch-icon" sizes="167x167" href="${Resource.msgf('pwa.app.apple.icon.167', 'pwa', null, siteid)}">
