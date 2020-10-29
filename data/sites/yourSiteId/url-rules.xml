@@ -3,5 +3,11 @@
     <pipeline-aliases xml:lang="x-default">
         <pipeline-alias pipeline="Pwa-Manifest">manifest</pipeline-alias>
         <pipeline-alias pipeline="Pwa-SW">sw</pipeline-alias>
+        <pipeline-alias pipeline="Checkout-Login">checkout-start</pipeline-alias>
+        <pipeline-alias pipeline="Checkout-Begin">checkout</pipeline-alias>
+        <pipeline-alias pipeline="Cart-Show">cart</pipeline-alias>
+        <pipeline-alias pipeline="Login-Show">login</pipeline-alias>
+        <pipeline-alias pipeline="Home-Show">home</pipeline-alias>
+        <pipeline-alias pipeline="Account-Show">account</pipeline-alias>
     </pipeline-aliases>
 </url-rules>

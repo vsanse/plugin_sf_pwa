@@ -1,1 +1,47 @@
-<p>Seems Like you are offline</p>
+<iscontent type="text/html" charset="UTF-8" compact="true"/>
+
+<isinclude template="/components/modules" sf-toolkit="off" />
+
+<!DOCTYPE html>
+<html lang="${require('dw/util/Locale').getLocale(request.getLocale()).getLanguage()}">
+    <head>
+        <!--[if gt IE 9]><!-->
+            <isinclude sf-toolkit="off" template="/common/scripts" />
+        <!--<![endif]-->
+        <isinclude template="/common/htmlHead" />
+        <isactivedatahead/>
+        <style>
+            .brand {
+                position: static !important;
+                margin: 0 auto !important;
+                padding: 0.5rem !important;
+            }
+        </style>
+    </head>
+    <body>
+        ${dw.system.HookMgr.callHook('app.template.beforeHeader', 'beforeHeader', pdict) || ''}
+
+        <div class="page">
+            <isinclude template="/components/header/pageHeaderNomenu" />
+            <div role="main" id="maincontent">
+                <div class="container mb-5">
+                    <div class="row pt-5">
+                        <div class="col-12">
+                            <h1 class="text-center">
+                                Seems like you are offline
+                            </h1>
+                        </div>
+                        <div class="col-12 text-center">
+                            <a class="btn btn-primary" href="${URLUtils.https('Home-Show')}">Go Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <isinclude template="/components/footer/pageFooter" />
+        </div>
+        <!--[if lt IE 10]>
+            <isinclude sf-toolkit="off" template="/common/scripts" />
+        <![endif]-->
+
+    </body>
+</html>

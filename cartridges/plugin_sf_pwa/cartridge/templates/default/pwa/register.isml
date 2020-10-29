@@ -50,5 +50,36 @@
 <link rel="apple-touch-startup-image" href="${Resource.msgf('pwa.app.apple.spash.2732-2048', 'pwa', null, siteid)}"
     media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
 
-<script id="sw" src="${URLUtils.staticURL("js/registerSW.js")}" data-swurl="${URLUtils.https('Pwa-SW').toString()}"
-    data-preventadd2hs="${Resource.msg('pwa.app.preventadd2hs', 'pwa', null)}" ></script>
+<isset name="swurl" value="${URLUtils.https('Pwa-SW').toString()}" scope="page" />
+<isset name="preventadd2hs" value="${Resource.msg('pwa.app.preventadd2hs', 'pwa', null)}" scope="page" />
+
+
+<script>
+if ("serviceWorker" in navigator) {
+    if (navigator.serviceWorker.controller) {
+        console.log("Active service worker found, no need to register");
+    } else {
+        // Register the service worker
+        navigator.serviceWorker
+        .register("${swurl}")
+        .then(function (registration) {  
+            console.log("Service Worker registered! Scope:", registration.scope);
+        })
+        .catch(function (err) {
+            console.log("Service Worker registration failed:", err);
+        });
+    }
+}
+
+/**
+ * Add install PWA event to window which can be triggered when required
+ */
+window.addEventListener('beforeinstallprompt', (evt) => {
+    // hide default prompt app install banner
+    if(${preventadd2hs} === true){
+        evt.preventDefault()
+    }
+    // Stash the event so it can be triggered later.
+    window.add2hs = evt;
+});
+</script>

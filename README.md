@@ -1,11 +1,3 @@
-<!--![](https://i.imgur.com/YwwLUd5.png)-->
-
-## Demo
-
-**Click image to watch plugin at work**
-
-[![See on youtube](https://img.youtube.com/vi/XyNy90px5Lk/0.jpg)](https://www.youtube.com/watch?v=XyNy90px5Lk)
-
 ### What is all the buzz about
 What is PWA? Why PWA?.... Before answering that let's have a look at how a user interacts with the digital world. As per study users usually spend 13% of their time on the web and 87% of that on Native apps due to their capabilities like push notification that brings the user back. So does that mean to abandon the web completely? Well... not exactly whereas the user spends most of the time on native apps but when it comes to reachability web surpasses native apps. On an average user installs ZERO apps per month where visits hundreds of websites at the same time. So if your app is not in users' top choice you can forget about it. This gap between native apps' capability and the web's reachability is covered by PWA.
 
@@ -38,6 +30,7 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
 - HTTPS-enabled website
 - **Important** PWA icons see [Generating and adding PWA icons](https://vsanse.github.io/plugin_sf_pwa/#generating-and-adding-pwa-icons)
 
+
 ### Cartridge Download
 
 1. Get the latest version from [Releases](https://github.com/vsanse/plugin_sf_pwa/releases)
@@ -56,16 +49,7 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
 	```
 	<isinclude template="pwa/register"/>
 	```
-4. Add new property file named pwa.properties to your site cartridge to update manifest.json file with your site name, theme, icons and To updated offline fallback page for your site.
-5. **[Optional]** Add new template "pwa/static_assets.isml" if you want to override cache file on the first load and add pages to be cached in Service worker in form of an array: e.g:
-	```
-	[
-        "${URLUtils.https("Pwa-Offline")}",<=== [MANDATORY TO ADD IN THIS FILE IF OVERRIDING]
-        "${URLUtils.staticURL('/css/app.min.css')}",
-        "${URLUtils.staticURL('/js/app.min.js')}"
-    ]
-    ```
-6. **[Optional]** You may want to design your own offline page so create new template "pwa/offline.isml" in your site cartridge it will override default offline template in plugin cartridge.
+4.  **[Optional]** Add new property file named pwa.properties to your site cartridge to update manifest.json file with your site name, theme, icons and To updated offline fallback page for your site.
 
 
 ### Generating and adding PWA icons
@@ -80,7 +64,7 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
 3. Now copy generated icons folder to "[Your site Cartridge]/static/default/images/"
 
 ### Features
-1. #### Extend Manifest and Service worker
+1. #### Extend Manifest 
     Feeling adventurous? Want to add more cool functionalities to your PWA?
 
     + **To add more configurations to your manifest.json:**
@@ -90,86 +74,20 @@ The full case study at [Lancôme rebuilds their mobile website as a PWA](https:/
             ```
         2. Create file **manifest_extended.isml** under **pwa** folder in templates of your site cartridge
 
-    + **To add more functionalities to your service worker:**
-        1. In your site cartridge's pwa.properties file add the line
-            ```
-            pwa.app.sw.extended=true
-            ```
-        2. Create file **sw_extended.isml** under **pwa** folder in templates of your site cartridge
-
-    + **To override fetch method of service worker**
-        1. In your site cartridge's pwa.properties file add the line
-            ```
-            pwa.app.sw.fetch.override=true
-            ```
-        2. Create file **sw_fetch_override.isml** under **pwa** folder in templates of your site cartridge
-
-        
-2. #### SkipWaiting(): to ensures any new versions of a service worker take over the page and become activated immediately.
-    **Note:** This is true by default so you may not need to add this line to your site cartridge's pwa.properties file
-    ```
-    pwa.app.skipWaiting=true
-    ```
-3. #### Choose your cache strategy
-    Currently, you have a choice of 3 types of cache strategies.
-    Cache Strategy can be defined using keywords  Cache First=CF, Network First=NF, Cache Then Network=CTN. For e.g.
-    ```
-    pwa.app.sw.cahe.strategy=CTN
-    ```
-    **Note** CTN is default and recommended cache strategy so you may not need to add this line to your site cartridge's pwa.properties file unless you want to override it.
-    
-    In CTN strategy every fetch request in service woker is first checked if it exists in cache if it does it will be served from there and if it doesn't then depending on your [opaque request handling](https://vsanse.github.io/plugin_sf_pwa/#handling-opaque-third-party-responses) it is served from network and cached at the same time. In case both of the above fails say request doesn't exists in cache and you are offline then it will fallback to generic error template defined by "Pwa-Offline" controller which you can override in your site cartridge for better UI/UX.
-    
-4. #### Handling opaque/ third party responses
-    By default plugin prevent any third party request being cached and is recommended as every third party request may generate a response of type opaque which causes it to get a minimum 7MB storage space in the cache, more at [https://cloudfour.com/thinks/when-7-kb-equals-7-mb/](https://cloudfour.com/thinks/when-7-kb-equals-7-mb/)
-    . Although it is recommended to not allow opaque response being cached you can allow it using 
-    ```
-    pwa.app.no.opaque.cache=false
-    ```
-    **Recommended way**:
-    + Keep no opaque cache property as true in PWA.properties [default plugin behavior].
-    + Opt-in to CORS mode: if your third-party CDNs all seem to support CORS, you could opt-in to CORS mode for your CSS and image requests via the [crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-crossorigin) attribute, and the responses will no longer be opaque.
-    + Add any third party request you want to cache to "static_assets.isml"
-    + **Update:** Now you can whitelist your third party requests in service worker by adding them in the array "pwa.app.opaque.whitelist" in "pwa.properties" file.
-	```
-	# If you need some opaque third party request to be cached you 
-	# can either whitelist full domain by adding only origin say: "https://www.example.com" 
-	# or you can whitelist only a specific request by using 
-	# full url: "https://example.com/image/250x250" to the array
-
-	pwa.app.opaque.whitelist=["https://www.example.com", "https://example.com/image/250x250"]
-	```
-5. #### Handling default app install behaviour
+2. #### Handling default app install behaviour
     From version [v1.3](https://github.com/vsanse/plugin_sf_pwa/releases) you can prevent default [mini-infobar](https://developers.google.com/web/fundamentals/app-install-banners#mini-info-bar) from appearing by using 
     ```
     pwa.app.preventadd2hs=true	
     ```
     If you decide to use above property, be sure to provide some [indication](https://vsanse.github.io/plugin_sf_pwa/#windowadd2hs-to-rescue) to the user that your Progressive Web App is installable.
 	
-6. #### window.add2hs to rescue
+3. #### window.add2hs to rescue
    From version [v1.3](https://github.com/vsanse/plugin_sf_pwa/releases) window object will have event add2hs which can be used to prompt user to install PWA using `window.add2hs.prompt()`. You can setup some [button or banner](https://developers.google.com/web/fundamentals/app-install-banners/promoting-install-mobile) to indicate user that your PWA is installable on click of which you can trigger `window.add2hs.prompt()` to prompt user to install PWA.
-7. #### exclude requests from cache
-    From version [v1.4](https://github.com/vsanse/plugin_sf_pwa/releases) you can define all the urls that you want to exclude form cache in `excludes.isml`. If you wish to turn this feature off you can use `pwa.properties` and make `pwa.app.allow.excluding` false. 
-
-    **Note:** By default cartridge will exclude `Login-Show` and `Cart-Show` from cache. 
-
-<!-- ### Using with SFRA
-
-Copy code from "controllers/Pwa-SFRA.txt" and replace code in Pwa.js under controllers folder in plugin -->
-
-### Upcoming updates:
-
-+ Ability to show progress bar on click in app
-+ ~~Ability to show button inside web page to trigger app install~~ Available from [v1.3](https://github.com/vsanse/plugin_sf_pwa/releases) 
-+ Any other suggestion you might have :smiley:
 
 ### For support and feedback:
 Contact at Linkedin: 
 
 [Vishal Sanserwal](https://linkedin.com/in/vishal-sanserwal)
 
-[Abhinav Tripathi](https://www.linkedin.com/in/abhinav-tripathi-06a2a642/)
-
-[Himanshu Kumar](https://www.linkedin.com/in/himaanshu24/)
 
 
